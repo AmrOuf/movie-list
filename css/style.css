@@ -1,3 +1,6 @@
-.header h2{font-weight: 100}
+html {
+	padding-top: 25px
+}
+
+.header h1{font-weight: 100}
 .form-container{background-color: #ededed;padding: 25px}
-.form-container h2, .form-container form label{color: #42464a}
