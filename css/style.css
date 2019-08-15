@@ -1,6 +1,15 @@
-html {
-	padding-top: 25px
+html 
+{
+	padding-top: 25px;
+	height: 6000px
 }
 
-.header h1{font-weight: 100}
-.form-container{background-color: #ededed;padding: 25px}
+.header h1 
+{
+	font-weight: 100
+}
+
+.form-container
+{
+	
+}
