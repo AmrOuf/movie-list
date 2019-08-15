@@ -5,6 +5,7 @@
 		<meta name="description" content="List your favourite movies!">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- <link rel="shortcut icon"href="images/bookmark_logo.png"> -->
+		<link rel="shortcut icon" href="imgs/movie_icon.png">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/style.css">
 		<title>Movie List App</title>
@@ -14,31 +15,77 @@
 
 		<!-- Header -->
 		<div class="container header text-center">
-			<h1 class="mb-4">MY<span class="text-primary">MOVIE</span>LIST</h1>
+			<h1 class="">MY<span class="text-primary">MOVIE</span>LIST</h1>
 		</div>
 
-		<!-- Bookmark your sites -->
-		<div class="container form-container">
+		<!-- Add your favourite movies -->
+		<div class="container form-container pb-4">
 			<form id="myForm">
 			  <div class="form-group">
 					<label class="font-weight-bold ml-2">Title</label>
 					<input type="text" class="form-control" placeholder="Movie name" 
-					id="site-name">
+					id="movieName">
 			  </div>
 			  <div class="row">
 				  <div class="form-group col-sm-6">
 				    <label class="font-weight-bold ml-2">Year</label>
-				    <input type="number" class="form-control" placeholder="Release year">
+				    <select class="form-control" id="exampleFormControlSelect1"></select>
 				  </div>
 				  <div class="form-group col-sm-6">
 				    <label class="font-weight-bold ml-2">Director</label>
-				    <input type="text" class="form-control" placeholder="Movie director">
+				    <input type="text" class="form-control" placeholder="Movie director"
+				     id="movieDirector">
 				  </div>
 			  </div>
 
-			  <button type="submit" class="btn btn-primary">Submit</button>  
+			  <button type="submit" class="btn btn-primary" id="submit">Submit</button>  
 			</form>
 		</div>
+
+		<div class="container">
+			<table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Movie Title</th>
+			      <th scope="col">Year</th>
+			      <th scope="col">Director</th>
+			      <th scope="col"></th>
+			    </tr>
+			  </thead>
+			  <tbody id="tableBody"></tbody>
+<!-- 			    <tr>
+			      <th scope="row">1</th>
+			      <td>Mark</td>
+			      <td>Otto</td>
+			      <td>Otto</td>
+			      <td>
+			      	<button class="btn btn-danger btn-sm">Remove</button>
+			      </td>
+			    </tr>
+			    <tr>
+			      <th scope="row">2</th>
+			      <td>Jacob</td>
+			      <td>Thornton</td>
+			      <td>Otto</td>
+			      <td>
+			      	<button class="btn btn-danger btn-sm">Remove</button>
+			      </td>
+			    </tr>
+			    <tr>
+			      <th scope="row">3</th>
+			      <td>Larry</td>
+			      <td>the Bird</td>
+			      <td>Otto</td>
+			      <td>
+			      	<button class="btn btn-danger btn-sm">Remove</button>
+			      </td>
+			    </tr> -->
+			  
+			</table>
+		</div>
+
+
 
 
 		<script
