@@ -1,3 +1,7 @@
+
+window.onload = printMovies();
+
+
 let formSelect = document.getElementById('exampleFormControlSelect1');
 
 // Make the list of options for the release year
@@ -28,35 +32,69 @@ document.getElementById('myForm').addEventListener('submit', function(e)
 
 	// console.log(e.target.firstElementChild.lastElementChild.value);
 
-	const movieName = document.getElementById('movieName').value;
-	const movieYear = document.getElementById('exampleFormControlSelect1').value;
-	const movieDirector = document.getElementById('movieDirector').value;
+	let movieName = document.getElementById('movieName').value;
+	let movieYear = document.getElementById('exampleFormControlSelect1').value;
+	let movieDirector = document.getElementById('movieDirector').value;
 
 	// console.log(movieName);
 	// console.log(movieYear);
 	// console.log(movieDirector);
 
 	let moviesList = [];
+	// console.log(moviesList);
 	const newEntry = new movie(movieName, movieYear, movieDirector);
-	// const newEntry2 = new movie(movieName, movieYear, movieDirector);
-	moviesList.push(newEntry);
-	// moviesList.push(newEntry2);
 
-	/***** You should get the old list first *****/
+	
+	let storedList = JSON.parse(localStorage.getItem('List of Movies'));
+
+	// if not null
+	if(storedList)
+		moviesList = [...storedList];
+
+	moviesList.push(newEntry);
+
 	localStorage.setItem('List of Movies', JSON.stringify(moviesList));
 
-	/***** Should manage local storage first then make a new function just for printing *****/
-	/***** Print should get its data from local storage onlyyyyyy *****/
-	document.getElementById('tableBody').innerHTML += 
-	`
-	    <tr>
-	      <th scope="row">1</th>
-	      <td>${movieName}</td>
-	      <td>${movieYear}</td>
-	      <td>${movieDirector}</td>
-	      <td>
-	      	<button class="btn btn-danger btn-sm">Remove</button>
-	      </td>
-	    </tr>
-	`;
+
+	// Reset the fields
+	document.getElementById('movieName').value = '';
+	document.getElementById('movieDirector').value = '';
+
+
+	printMovies();
+
+
 });
+
+
+function printMovies()
+{
+	let storedList = JSON.parse(localStorage.getItem('List of Movies'));
+
+	if(storedList)
+	{
+		let toBePrinted = '';
+		let i = 0;
+
+		storedList.forEach(function(movie)
+		{
+			i++;
+			toBePrinted += 
+			`
+			    <tr>
+			      <th scope="row">${i}</th>
+			      <td>${movie.title}</td>
+			      <td>${movie.year}</td>
+			      <td>${movie.director}</td>
+			      <td>
+			      	<button class="btn btn-danger btn-sm">Remove</button>
+			      </td>
+			    </tr>
+			`
+		});
+
+		document.getElementById('tableBody').innerHTML = toBePrinted;
+	}
+
+
+}
