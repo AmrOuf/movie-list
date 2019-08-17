@@ -87,7 +87,8 @@ function printMovies()
 			      <td>${movie.year}</td>
 			      <td>${movie.director}</td>
 			      <td>
-			      	<button class="btn btn-danger btn-sm">Remove</button>
+			      	<button class="btn btn-danger btn-sm"
+			      	onclick="removeMovie(this)">Remove</button>
 			      </td>
 			    </tr>
 			`
@@ -95,6 +96,40 @@ function printMovies()
 
 		document.getElementById('tableBody').innerHTML = toBePrinted;
 	}
-
-
 }
+
+
+function removeMovie(btn) 
+{
+
+	let storedList = JSON.parse(localStorage.getItem('List of Movies'));
+
+	let movieName = btn.parentNode.previousElementSibling
+		.previousElementSibling.previousElementSibling.innerHTML;
+	let movieYear = btn.parentNode.previousElementSibling.previousElementSibling.innerHTML;
+	let movieDirector = btn.parentNode.previousElementSibling.innerHTML;
+
+	// console.log(storedList);
+	// console.log(movieName);
+	// console.log(movieYear);
+	// console.log(movieDirector);
+
+	let updatedList = [];
+	storedList.forEach(function(movie){
+		// console.log(movie.title);
+
+		if ((movieName != movie.title) || 
+			(movieYear != movie.year) || 
+			(movieDirector != movie.director))
+		{
+			updatedList.push(movie);
+		}
+
+	});
+
+	// console.log(storedList);
+	// console.log(updatedList);
+
+	localStorage.setItem('List of Movies', JSON.stringify(updatedList));
+	printMovies();
+}	
