@@ -5,8 +5,7 @@ window.onload = printMovies();
 let formSelect = document.getElementById('exampleFormControlSelect1');
 
 // Make the list of options for the release year
-for(let i=1900 ; i<=2030 ; i++)
-{
+for (let i=1900 ; i<=2030 ; i++) {
 	// Make the current year the default selection
 	let d = new Date();
 	let n = d.getFullYear();
@@ -16,10 +15,8 @@ for(let i=1900 ; i<=2030 ; i++)
 		formSelect.innerHTML += `<option>${i}</option>`;
 }
 
-class movie 
-{
-	constructor(title, year, director) 
-	{
+class movie {
+	constructor(title, year, director) {
 		this.title = title;
 		this.year = year;
 		this.director = director;
@@ -27,8 +24,7 @@ class movie
 }
 
 
-document.getElementById('myForm').addEventListener('submit', function(e) 
-{
+document.getElementById('myForm').addEventListener('submit', (e) => {
 	// Prevent the page from reloading on 'Submit'
 	e.preventDefault();
 
@@ -38,14 +34,12 @@ document.getElementById('myForm').addEventListener('submit', function(e)
 	let movieYear = document.getElementById('exampleFormControlSelect1').value;
 	let movieDirector = document.getElementById('movieDirector').value;
 
-	if (!movieName)
-	{
+	if (!movieName) {
 		alert('Please enter a movie name');
 		return;
 	}
 
-	if (!movieDirector)
-	{
+	if (!movieDirector)	{
 		alert('Please enter the director\'s name');
 		return;
 	}
@@ -112,8 +106,7 @@ function printMovies()
 }
 
 
-function removeMovie(btn) 
-{
+function removeMovie(btn) {
 
 	let storedList = JSON.parse(localStorage.getItem('List of Movies'));
 
