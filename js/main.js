@@ -7,8 +7,10 @@ let formSelect = document.getElementById('exampleFormControlSelect1');
 // Make the list of options for the release year
 for(let i=1900 ; i<=2030 ; i++)
 {
-	// Make 2019 the default selection
-	if(i===2019)
+	// Make the current year the default selection
+	let d = new Date();
+	let n = d.getFullYear();
+	if(i===n)
 		formSelect.innerHTML += `<option selected>${i}</option>`;
 	else
 		formSelect.innerHTML += `<option>${i}</option>`;
@@ -35,6 +37,18 @@ document.getElementById('myForm').addEventListener('submit', function(e)
 	let movieName = document.getElementById('movieName').value;
 	let movieYear = document.getElementById('exampleFormControlSelect1').value;
 	let movieDirector = document.getElementById('movieDirector').value;
+
+	if (!movieName)
+	{
+		alert('Please enter a movie name');
+		return;
+	}
+
+	if (!movieDirector)
+	{
+		alert('Please enter the director\'s name');
+		return;
+	}
 
 	// console.log(movieName);
 	// console.log(movieYear);
@@ -76,8 +90,7 @@ function printMovies()
 		let toBePrinted = '';
 		let i = 0;
 
-		storedList.forEach(function(movie)
-		{
+		storedList.forEach(movie => {
 			i++;
 			toBePrinted += 
 			`
@@ -109,13 +122,9 @@ function removeMovie(btn)
 	let movieYear = btn.parentNode.previousElementSibling.previousElementSibling.innerHTML;
 	let movieDirector = btn.parentNode.previousElementSibling.innerHTML;
 
-	// console.log(storedList);
-	// console.log(movieName);
-	// console.log(movieYear);
-	// console.log(movieDirector);
-
 	let updatedList = [];
-	storedList.forEach(function(movie){
+
+	storedList.forEach(movie => {
 		// console.log(movie.title);
 
 		if ((movieName != movie.title) || 
