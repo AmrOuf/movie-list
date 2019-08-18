@@ -99,6 +99,7 @@ function printMovies()
 			      </td>
 			    </tr>
 			`
+			/* We can make the function remove with foreach and query selector, classes */
 		});
 
 		document.getElementById('tableBody').innerHTML = toBePrinted;
