@@ -1,7 +1,6 @@
 html 
 {
 	padding-top: 25px;
-	height: 6000px
 }
 
 .header h1 
@@ -9,7 +8,7 @@ html
 	font-weight: 100
 }
 
-.form-container
+#th-title, #th-year, #th-director
 {
-	
+	cursor: pointer;
 }
