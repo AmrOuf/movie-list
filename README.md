@@ -5,5 +5,3 @@ This is a movie list application made in ES6 to make a list of your favourite mo
 The list you made is kept in the local storage of the browser so the list is saved even if you close the browser tab or reload it again.
 
 The application layout is made in HTML, CSS, and Bootstrap. You can try the application here: http://bit.ly/2z3JZAW
-
-**(Still a work in progress)**
